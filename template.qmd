@@ -1,0 +1,56 @@
+---
+currency: €
+sender:
+  name: Firstname LASTNAME
+  email: Firstname.LASTNAME@company.dev
+  address:
+    street: 123 Rue de la Paix
+    zip: 75000
+    city: Paris
+    country: France
+  registration: 123 456 789
+  vat: FR1234567890
+  exempted: "Exempted from VAT (article 259-1 du CGI, France)."
+bank:
+  bic: AZERTYUI
+  iban: FR12 1234 4567 7890 1234 5678 901
+recipient:
+  name: Company, Inc.
+  address:
+    street: 123 Main Street
+    zip: 12345
+    city: New York
+    state: NY
+    country: United States
+format:
+  invoice-typst:
+    lang: en_UK
+    papersize: a4
+    margin:
+      x: 2.5cm
+      y: 2.5cm
+    mainfont: "Alegreya Sans"
+    fontsize: 12pt
+---
+
+```{=typst}
+#table(
+  columns: (1fr, auto, auto, auto, auto),
+  rows: 36pt,
+  fill: (col, row) =>
+    if (row == 0 and col in (0, 1, 2, 3, 4, 5)) or (row == 5 and col in (2, 3, 4, 5)) {
+      luma(240)
+    } else {
+      white
+    },
+  inset: 5pt,
+  align: horizon,
+  stroke: none,
+  [*Details*], [*Qty*], [*Unit price*], [*VAT %*], [*Total excl. VAT*],
+  [*{{< meta invoice.task >}}* \ _{{< meta invoice.details >}}_], [1], [{{< meta currency >}}{{< meta invoice.amount >}}], [0 %], [{{< meta currency >}}{{< meta invoice.amount >}}],
+  [], [], [], [], [],
+  [], [], [*Total excl. VAT*], [], [{{< meta currency >}}{{< meta invoice.amount >}}],
+  [], [], [*VAT*], [], [{{< meta currency >}}0.00],
+  [], [], [*Total*], [], [{{< meta currency >}}{{< meta invoice.amount >}}]
+)
+```
