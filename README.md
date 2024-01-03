@@ -22,3 +22,9 @@ Under the hood, this will generate a YAML file for each invoice, then generate t
 ```bash
 quarto render template.qmd --metadata-file input/202401-001.yml --output output/INVOICE-N202401-001-Company-Inc.pdf
 ```
+
+## Requirements
+
+- Python 3.12.1: <https://www.python.org/>
+- Quarto 1.4.534 <https://quarto.org>
+- Invoice (Typst) 1.1.1: <https://github.com/mcanouil/quarto-invoice>
