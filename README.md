@@ -6,7 +6,7 @@ It first generates YAML files for each invoice, then generates the invoices from
 ## Usage
 
 ```bash
-generate_invoices.py \
+generate-invoices.py \
   --name="Consulting" \
   --task="A very important job" \
   --details="A description of the tasks" \
