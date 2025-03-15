@@ -22,6 +22,7 @@ recipient:
     city: New York
     state: NY
     country: United States
+logo: none
 format:
   invoice-typst:
     lang: en_UK
@@ -29,8 +30,16 @@ format:
     margin:
       x: 2.5cm
       y: 2.5cm
-    mainfont: "Alegreya Sans"
-    fontsize: 12pt
+brand:
+  typography:
+    fonts:
+      - family: Alegreya Sans
+        source: google
+        weight: [400, 700]
+        style: [normal, italic]
+    base:
+      family: "Alegreya Sans"
+      size: 12pt
 ---
 
 ```{=typst}
